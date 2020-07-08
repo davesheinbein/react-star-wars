@@ -6,7 +6,7 @@ import StarshipPage from './pages/StarshipPage/StarshipPage';
 
 
 class App extends Component {
-  
+
   state = {
     starships: []
   };
@@ -19,15 +19,15 @@ class App extends Component {
     const starships = await getAllStarships();
     this.setState({ starships: starships.results });
   }
-  
+
   render() {
     return (
       <div className="App">
         <header className="App-header">STAR WARS STARSHIPS</header>
         <Switch>
-          <Route exact path='/' render={() => 
+          <Route exact path='/' render={() =>
             <section>
-              {this.state.starships.map(starship => 
+              {this.state.starships.map(starship =>
                 <Link
                   to={{
                     pathname: '/starships',
@@ -39,12 +39,12 @@ class App extends Component {
                 </Link>
               )}
             </section>
-          }/>
-          <Route path='/starships' render={({location}) => 
+          } />
+          <Route path='/starships' render={({ location }) =>
             <StarshipPage
               location={location}
             />
-          }/>
+          } />
         </Switch>
       </div>
     );
